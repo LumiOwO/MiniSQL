@@ -1,0 +1,88 @@
+------------------------ MIPSEditorV1.0 @ by ShuZixi ------------------------
+
+帮助:
+1. 菜单操作说明
+  ·"文件"菜单: 新建、打开、保存、另存为、退出;
+  ·"编辑"菜单: 剪切、复制、粘贴、全选、撤销、重做;
+  ·"汇编"菜单: 汇编、反汇编;
+   ·汇编: 将当前文本框中代码进行汇编，结果输出在右侧表格，
+   ·选择"生成xx文件"选项可将汇编结果导出为相应格式的文件(.coe, .bin)。
+   ·反汇编：导入外部的coe或二进制文件，反汇编为代码显示在新建的文本中。
+  ·"视图"菜单：进制选择、以指令格式显示;
+   ·进制选择：使表格中的指令码按选定的进制显示。
+   ·以指令格式显示：选择指令码显示模式：按指令格式分段/按字节分段。
+  ·"帮助"菜单：帮助、关于Qt
+   ·帮助：弹出帮助文档窗口。
+   ·关于Qt：本程序由Qt Creator的窗口示例程序改写而来，这里保留Qt的版权声明。
+
+2. 支持的指令
+  ·MIPS指令：根据教材附录格式编写
+   ·add rd, rs, rt
+   ·addi rt, rs, imm
+   ·addu rd, rs, rt
+   ·addiu rt, rs, imm
+   ·sub rd, rs, rt
+   ·subu rd, rs, rt
+   ·slt rd, rs, rt
+   ·slti rt, rs, imm
+   ·sltu rd, rs, rt
+   ·sltiu rt, rs, imm
+   ·div rs, rt
+   ·divu rs, rt
+   ·mult rs, rt
+   ·multu rs, rt
+   ·and rd, rs, rt
+   ·andi rt, rs, imm
+   ·lui rt, imm
+   ·nor rd, rs, rt
+   ·or rd, rs, rt
+   ·ori rt, rs, imm
+   ·xor rd, rs, rt
+   ·xori rt, rs, imm
+   ·sllv rd, rt, rs
+   ·sll rd, rt, shamt
+   ·srav rd, rt, rs
+   ·sra rd, rt, shamt
+   ·srlv rd, rt, rs
+   ·srl rd, rt, sa
+   ·beq rs, rt, tag
+   ·bne rs, rt, tag
+   ·bgez rs, tag
+   ·bgtz rs, tag
+   ·blez rs, tag
+   ·bltz rs, tag
+   ·bgezal rs, tag
+   ·bltzal rs, tag
+   ·j tag
+   ·jal tag
+   ·jr rs                --> default rs = $ra
+   ·jalr rs, rd
+   ·mfhi rd
+   ·mflo rd
+   ·mflo rs
+   ·mtlo rs
+   ·break
+   ·syscall
+   ·lb rt, offset(base)  --> default offset = 0
+   ·lbu rt, offset(base)
+   ·lh rt, offset(base)
+   ·lhu rt, offset(base)
+   ·lw rt, offset(base)
+   ·sb rt, offset(base)
+   ·sh rt, offset(base)
+   ·sw rt, offset(base)
+   ·eret
+   ·mfc0 rt, rd
+   ·mtc0 rd, rt
+  ·伪指令：
+   ·baseaddr addr --> 设置下一条指令的地址，设置的地址必须大于当前地址，跳过的地址以全0填补
+   ·dataaddr addr --> 设置数据区定义的起始地址，功能与上一条相同。
+   ·db ["string"][byte] --> 以1字节为单位定义数据，允许字符串/数字为参数，不够四字节将用0补齐。
+   ·dw ["string"][byte] --> 以2字节为单位定义数据，允许字符串/数字为参数，不够四字节将用0补齐。
+   ·dd ["string"][byte] --> 以4字节为单位定义数据，允许字符串/数字为参数，不够四字节将用0补齐。
+   ### 注意: 尽量使定义的数据长度是4字节的整数倍，否则有极大概率出现bug！
+
+3. 如果发现bug或需要扩充支持的指令，请发邮件联系我！
+  Email: 3170105055@zju.edu.cn
+
+@All Rights Reserved
